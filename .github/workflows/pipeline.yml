@@ -30,7 +30,7 @@ jobs:
           heroku_email: "czuper1997@gmail.com"
           healthcheck: "https://ci-cd-fullstack-ex-11-22-2021.herokuapp.com/health"
           checkstring: "ok"
-          rollbackonhealthcheckfailed: true
+          # rollbackonhealthcheckfailed: true
       # - uses: actions/checkout@v2
       # - name: Bump version and push tag
       #   if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
