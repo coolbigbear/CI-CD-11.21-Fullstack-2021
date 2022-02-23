@@ -22,15 +22,15 @@ jobs:
         run: npm run lint
       - name: build
         run: npm run build
-      # - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-      #   if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
-      #   with:
-      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-      #     heroku_app_name: "ci-cd-fullstack-2021" #Must be unique in Heroku
-      #     heroku_email: "czuper1997@gmail.com"
-      #     healthcheck: "https://ci-cd-fullstack-2021.herokuapp.com/health"
-      #     checkstring: "ok"
-      #     rollbackonhealthcheckfailed: true
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "ci-cd-fullstack-ex-11-22-2021" #Must be unique in Heroku
+          heroku_email: "czuper1997@gmail.com"
+          healthcheck: "https://ci-cd-fullstack-ex-11-22-2021.herokuapp.com/health"
+          checkstring: "ok"
+          rollbackonhealthcheckfailed: true
       # - uses: actions/checkout@v2
       # - name: Bump version and push tag
       #   if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
